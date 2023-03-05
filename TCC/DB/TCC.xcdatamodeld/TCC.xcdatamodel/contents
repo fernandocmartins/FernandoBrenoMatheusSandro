@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ProductData" representedClassName=".ProductData" syncable="YES">
+        <attribute name="card" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="photo" optional="YES" attributeType="Binary"/>
+        <attribute name="price" optional="YES" attributeType="String"/>
+        <relationship name="state" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StateData"/>
+    </entity>
+    <entity name="StateData" representedClassName=".StateData" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="tax" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="ProductData" positionX="-63" positionY="0" width="128" height="104"/>
+        <element name="StateData" positionX="160" positionY="192" width="128" height="59"/>
+    </elements>
+</model>
