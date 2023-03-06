@@ -3,7 +3,7 @@
 ![Build](https://img.shields.io/static/v1?label=Versão&message=1.0&color=blue)
 
 # Introdução
-TCC de iOS do curso de MBA Mobile Development - FIAO
+TCC de iOS do curso de MBA Mobile Development - FIAP
 
 <li> Breno
 <li> Fernando
