@@ -38,7 +38,6 @@ class TotalPurchasePriceViewController: UIViewController {
     }
     
     private func getTotalUS() -> Double {
-        let totalBR = getTotalBR()
         guard let dolar_s = UserDefaults.standard.object(forKey: "tax_value") as? String, let dolar = Double(dolar_s) else {
             return 00.00
         }
