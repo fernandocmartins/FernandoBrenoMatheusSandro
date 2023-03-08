@@ -38,17 +38,21 @@ class TotalPurchasePriceViewController: UIViewController {
     }
     
     private func getTotalUS() -> Double {
-        guard let dolar_s = UserDefaults.standard.object(forKey: "tax_value") as? String, let dolar = Double(dolar_s) else {
-            return 00.00
-        }
-        return dolar
-    }
-    
-    private func getTotalBR() -> Double {
         var total: Double = 00.00
         let prices = getAllPrices()
         total = prices.reduce(0) {$0 + $1}
         return total
+    }
+    
+    private func getDolarTaxValue() -> Double {
+        guard let dolarPrice = UserDefaults.standard.object(forKey: "tax_value") as? String, let dolarTaxValue = Double(dolarPrice) else {
+            return 00.00
+        }
+        return dolarTaxValue
+    }
+    
+    private func getTotalBR() -> Double {
+        return getTotalUS() * getDolarTaxValue()
     }
     
 }
