@@ -113,7 +113,7 @@ final class AdjustViewController: UIViewController, AdjustSetDelegate {
            let tfTax = tfs.last,
            let taxValue = tfTax.text {
             if taxValue != "", stateName != ""{
-                let model = State(name: stateName, tax: taxValue)
+                let model = State(name: stateName, tax: taxValue.replacingOccurrences(of: ",", with: "."))
                 CDConfig.shared.saveItem(with: model)
                 self.setTableItems()
             }  else {
