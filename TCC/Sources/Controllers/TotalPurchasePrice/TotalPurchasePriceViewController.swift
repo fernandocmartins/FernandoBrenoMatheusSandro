@@ -51,8 +51,32 @@ class TotalPurchasePriceViewController: UIViewController {
         return dolarTaxValue
     }
     
+    private func getIofTaxValue() -> Double {
+        guard let iof = UserDefaults.standard.object(forKey: "iof_value") as? String, let iofTaxValue = Double(iof) else {
+            return 1.0
+        }
+        return iofTaxValue/100
+    }
+    
+        
     private func getTotalBR() -> Double {
-        return getTotalUS() * getDolarTaxValue()
+        let products = self.getAllProducts()
+        let iof = getIofTaxValue()
+        let dolarTaxValue = getDolarTaxValue()
+        var total = 0.0
+                
+        products?.forEach { product in
+            guard let tax = product.state?.tax as? String, let taxValue = Double(tax),
+                  let price = product.price, let priceValue = Double(price) else {
+                return
+            }
+            let iofCard = product.card ? iof + 1 : 1.0
+            let taxState = 1 + taxValue/100
+
+            total += ((priceValue * taxState) * dolarTaxValue) * iofCard
+        }
+        
+        return total
     }
     
 }

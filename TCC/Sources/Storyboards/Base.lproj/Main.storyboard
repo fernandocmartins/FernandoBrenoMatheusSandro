@@ -13,7 +13,7 @@
         <!--Total Purchase Price View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TotalPurchasePriceViewController" customModule="TCC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="TotalPurchasePriceViewController" customModule="ComprasUSA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +29,7 @@
         <!--Adjust View Controller-->
         <scene sceneID="9jy-SQ-BuP">
             <objects>
-                <viewController id="JVD-Xg-5St" customClass="AdjustViewController" customModule="TCC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JVD-Xg-5St" customClass="AdjustViewController" customModule="ComprasUSA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hmy-Wp-HJf">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
         <!--Lista de Compras-->
         <scene sceneID="N9V-jH-LXY">
             <objects>
-                <viewController id="baM-57-zyf" customClass="PurchaseListViewController" customModule="TCC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="baM-57-zyf" customClass="PurchaseListViewController" customModule="ComprasUSA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="leR-U6-W0l">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
