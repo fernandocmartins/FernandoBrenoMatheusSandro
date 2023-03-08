@@ -56,7 +56,7 @@
 		551F503029A94DCD00832C9B /* TotalPurchasePriceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPurchasePriceViewController.swift; sourceTree = "<group>"; };
 		551F503229A9666B00832C9B /* TotalPurchasePriceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalPurchasePriceView.swift; sourceTree = "<group>"; };
 		5586AA6129A001AE00BC7321 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
-		55E24B02299BDA8B003ADCE4 /* TCC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TCC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E24B02299BDA8B003ADCE4 /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E24B05299BDA8B003ADCE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55E24B07299BDA8B003ADCE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		55E24B0C299BDA8B003ADCE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -243,7 +243,7 @@
 		55E24B03299BDA8B003ADCE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55E24B02299BDA8B003ADCE4 /* TCC.app */,
+				55E24B02299BDA8B003ADCE4 /* ComprasUSA.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -319,9 +319,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		55E24B01299BDA8B003ADCE4 /* TCC */ = {
+		55E24B01299BDA8B003ADCE4 /* ComprasUSA */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55E24B19299BDA8D003ADCE4 /* Build configuration list for PBXNativeTarget "TCC" */;
+			buildConfigurationList = 55E24B19299BDA8D003ADCE4 /* Build configuration list for PBXNativeTarget "ComprasUSA" */;
 			buildPhases = (
 				55E24AFE299BDA8B003ADCE4 /* Sources */,
 				55E24AFF299BDA8B003ADCE4 /* Frameworks */,
@@ -331,9 +331,9 @@
 			);
 			dependencies = (
 			);
-			name = TCC;
+			name = ComprasUSA;
 			productName = TCC;
-			productReference = 55E24B02299BDA8B003ADCE4 /* TCC.app */;
+			productReference = 55E24B02299BDA8B003ADCE4 /* ComprasUSA.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -364,7 +364,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				55E24B01299BDA8B003ADCE4 /* TCC */,
+				55E24B01299BDA8B003ADCE4 /* ComprasUSA */,
 			);
 		};
 /* End PBXProject section */
@@ -628,7 +628,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55E24B19299BDA8D003ADCE4 /* Build configuration list for PBXNativeTarget "TCC" */ = {
+		55E24B19299BDA8D003ADCE4 /* Build configuration list for PBXNativeTarget "ComprasUSA" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55E24B1A299BDA8D003ADCE4 /* Debug */,
