@@ -22,7 +22,11 @@ class TotalPurchasePriceViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        mainView.setupValues(totalUS: String(self.getTotalUS()), totalBR: String(self.getTotalBR()))
+        var totalUS = self.getTotalUS().formatted(.currency(code: "USD"))
+        var totalBR = self.getTotalBR().formatted(.currency(code: "BRZ"))
+        totalBR.removeFirst(4)
+        totalUS.removeFirst(4)
+        mainView.setupValues(totalUS: String(totalUS), totalBR: String(totalBR))
     }
     
     private func getAllProducts() -> [ProductData]? {
@@ -33,49 +37,59 @@ class TotalPurchasePriceViewController: UIViewController {
     
     private func getAllPrices() -> [Double] {
         guard let products = self.getAllProducts() else { return [] }
-        let values = products.map { Double($0.price ?? String()) ?? 00.00 }
+        let values = products.map { product -> Double in
+            let price = Double(product.price ?? String()) ?? 00.00
+            let tax = Double(product.state?.tax ?? String()) ?? 00.00
+            var iof = 00.00
+            var tax_state = 00.00
+            if product.card {
+                iof = (price * getIOF())
+                iof = iof / 100.0
+            }
+            tax_state = (price * tax)
+            tax_state = tax_state / 100.0
+            return price + iof + tax_state
+        }
         return values
     }
     
-    private func getTotalUS() -> Double {
+    private func getBruteValuesUS() -> [Double] {
+        guard let products = self.getAllProducts() else { return [] }
+        let values = products.map { product -> Double in
+            let price = Double(product.price ?? String()) ?? 00.00
+            return price
+        }
+        return values
+    }
+    
+    
+    private func getIOF() -> Double {
+        guard let iof_s = UserDefaults.standard.object(forKey: "iof_value") as? String, let iof = Double(iof_s) else {
+            return 00.00
+        }
+        return iof
+    }
+    
+    private func getTotalBR() -> Double {
+        let totalBR = getTotalUSIofTax()
+        guard let dolar_s = UserDefaults.standard.object(forKey: "tax_value") as? String, let dolar = Double(dolar_s) else {
+            return 00.00
+        }
+        let total = totalBR * dolar
+        return total
+    }
+    
+    private func getTotalUSIofTax() -> Double {
         var total: Double = 00.00
         let prices = getAllPrices()
         total = prices.reduce(0) {$0 + $1}
         return total
     }
     
-    private func getDolarTaxValue() -> Double {
-        guard let dolarPrice = UserDefaults.standard.object(forKey: "tax_value") as? String, let dolarTaxValue = Double(dolarPrice) else {
-            return 00.00
-        }
-        return dolarTaxValue
-    }
-    
-    private func getIofTaxValue() -> Double {
-        guard let iof = UserDefaults.standard.object(forKey: "iof_value") as? String, let iofTaxValue = Double(iof) else {
-            return 1.0
-        }
-        return iofTaxValue/100
-    }
-    
-        
-    private func getTotalBR() -> Double {
-        let products = self.getAllProducts()
-        let iof = getIofTaxValue()
-        let dolarTaxValue = getDolarTaxValue()
-        var total = 0.0
-                
-        products?.forEach { product in
-            guard let tax = product.state?.tax as? String, let taxValue = Double(tax),
-                  let price = product.price, let priceValue = Double(price) else {
-                return
-            }
-            let iofCard = product.card ? iof + 1 : 1.0
-            let taxState = 1 + taxValue/100
-
-            total += ((priceValue * taxState) * dolarTaxValue) * iofCard
-        }
-        
+    private func getTotalUS() -> Double {
+        var total: Double = 00.00
+        let prices = getBruteValuesUS()
+        total = prices.reduce(0) {$0 + $1}
         return total
     }
     
